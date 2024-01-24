@@ -1,5 +1,10 @@
+.PHONY: helm-docs
 helm-docs:
 	go build github.com/norwoodj/helm-docs/cmd/helm-docs
+
+.PHONY: debug
+debug:
+	dlv debug --headless --listen=:2345 --api-version=2 --accept-multiclient github.com/norwoodj/helm-docs/cmd/helm-docs
 
 install:
 	go install github.com/norwoodj/helm-docs/cmd/helm-docs
